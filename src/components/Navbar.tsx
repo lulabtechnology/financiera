@@ -23,7 +23,7 @@ export default function Navbar() {
         <a href="#inicio" className="flex items-center gap-3">
           {/* Logo placeholder */}
           <img
-            src="/images/logo.svg"
+            src="/images/logo.png"
             alt="RapiCredito"
             className="h-9 w-9 rounded-xl bg-white/5 p-1 ring-1 ring-white/10"
             loading="eager"
