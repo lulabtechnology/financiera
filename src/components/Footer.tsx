@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3">
             <img
-              src="/images/logo.svg"
+              src="/images/logo.png"
               alt="RapiCredito"
               className="h-10 w-10 rounded-xl bg-white/5 p-1 ring-1 ring-white/10"
             />

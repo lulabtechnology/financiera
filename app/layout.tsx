@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/images/logo.svg",
+    icon: "/images/logo.png",
   },
 };
 
