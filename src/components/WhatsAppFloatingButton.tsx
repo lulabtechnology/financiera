@@ -7,10 +7,9 @@ export default function WhatsAppFloatingButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Abrir WhatsApp para cotizar"
-      className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-3 text-sm font-semibold text-emerald-950 shadow-soft hover:bg-emerald-400 transition"
+      className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-[var(--wa)] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(11,11,12,0.18)] hover:brightness-95 transition border-2 border-[rgba(210,19,21,0.35)]"
     >
-      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-950/15">
-        {/* simple bubble */}
+      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20">
         <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
           <path
             d="M12 3c-5 0-9 3.6-9 8.1 0 2.3 1.1 4.4 3 5.9L5 21l4.2-2.2c.9.2 1.8.3 2.8.3 5 0 9-3.6 9-8.1S17 3 12 3z"

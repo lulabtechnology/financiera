@@ -2,33 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===============================
+   THEME: RapiCredito (Light)
+   Paleta basada en logo:
+   - brand: #D21315
+   - brand2: #9C2F31
+   - ink: #0B0B0C
+   - surface: #FFFFFF
+   - muted surface: #F4F5F7
+================================ */
+
 :root{
-  --bg: #0b1220;
-  --surface: rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.10);
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.70);
-  --muted2: rgba(255,255,255,0.55);
-  --brand: #22c55e; /* emerald */
-  --brand2: #60a5fa; /* blue */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface2: #f4f5f7;
+  --ink: #0b0b0c;
+  --muted: rgba(11,11,12,0.68);
+  --muted2: rgba(11,11,12,0.52);
+  --border: rgba(11,11,12,0.12);
+  --brand: #d21315;
+  --brand2: #9c2f31;
+  --wa: #25D366;
 }
 
 html { scroll-behavior: smooth; }
+
 body{
-  background: radial-gradient(1200px 800px at 10% 10%, rgba(96,165,250,0.18), transparent 60%),
-              radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,0.18), transparent 55%),
-              var(--bg);
-  color: var(--text);
+  background:
+    radial-gradient(1000px 600px at 20% 0%, rgba(210, 19, 21, 0.10), transparent 60%),
+    radial-gradient(900px 520px at 85% 10%, rgba(156, 47, 49, 0.08), transparent 60%),
+    var(--bg);
+  color: var(--ink);
 }
 
 ::selection{
-  background: rgba(34,197,94,0.25);
+  background: rgba(210, 19, 21, 0.18);
 }
 
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible{
-  outline: 2px solid rgba(34,197,94,0.9);
+  outline: 2px solid rgba(210, 19, 21, 0.85);
   outline-offset: 2px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -36,9 +50,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .motion-safe\\:animate-floaty, .motion-safe\\:animate-shine, .motion-safe\\:animate-fadeUp { animation: none !important; }
 }
 
-/* Helper */
+/* Cards / panels */
+.card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 28px rgba(11,11,12,0.08);
+}
+
+/* Subtle glass (light) */
 .glass{
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(11,11,12,0.10);
   backdrop-filter: blur(10px);
 }
+
+@keyframes floaty {
+  0%,100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-10px) translateX(7px); }
+}
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.motion-safe\:animate-floaty{ animation: floaty 10s ease-in-out infinite; }
+.motion-safe\:animate-shine{ animation: shine 10s ease-in-out infinite; }
+.motion-safe\:animate-fadeUp{ animation: fadeUp 650ms ease-out both; }

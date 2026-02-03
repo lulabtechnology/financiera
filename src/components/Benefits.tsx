@@ -7,7 +7,7 @@ export default function Benefits() {
     },
     {
       title: "Asesoría humana",
-      desc: "Nada de bots eternos: una persona te acompaña para mantener todo claro.",
+      desc: "Una persona te acompaña para mantener todo claro y simple.",
       icon: "/icons/support.svg",
     },
     {
@@ -16,8 +16,8 @@ export default function Benefits() {
       icon: "/icons/clear.svg",
     },
     {
-      title: "Enfoque responsable",
-      desc: "Sin prometer aprobaciones: evaluamos tu caso y te damos opciones reales.",
+      title: "Evaluación responsable",
+      desc: "Sin prometer aprobación: revisamos tu caso y te damos opciones reales.",
       icon: "/icons/secure.svg",
     },
   ];
@@ -27,19 +27,19 @@ export default function Benefits() {
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold md:text-3xl">Beneficios que sí importan</h2>
-          <p className="mt-3 text-white/70">
-            Lo hacemos fácil: comunicación clara, guía práctica y seguimiento humano.
+          <p className="mt-3 text-black/70">
+            Comunicación clara, guía práctica y seguimiento humano.
           </p>
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((c) => (
-            <div key={c.title} className="glass rounded-3xl p-5 shadow-soft">
+            <div key={c.title} className="card rounded-3xl p-5">
               <div className="flex items-center gap-3">
-                <img src={c.icon} alt="" className="h-7 w-7 opacity-90" />
-                <h3 className="text-sm font-semibold">{c.title}</h3>
+                <img src={c.icon} alt="" className="h-7 w-7 opacity-75 invert" />
+                <h3 className="text-sm font-semibold text-black">{c.title}</h3>
               </div>
-              <p className="mt-3 text-sm text-white/70">{c.desc}</p>
+              <p className="mt-3 text-sm text-black/70">{c.desc}</p>
             </div>
           ))}
         </div>
