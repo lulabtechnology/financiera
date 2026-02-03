@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "préstamos personales",
     "Panamá",
     "cotización por WhatsApp",
-    "asesoría financiera",
+    "asesoría humana",
     "precalificación",
   ],
   openGraph: {
