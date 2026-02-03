@@ -5,24 +5,24 @@ export default function FAQ() {
       a: "Podemos considerar información crediticia como parte de la evaluación. Lo importante es revisar tu caso completo y orientarte con opciones realistas.",
     },
     {
-      q: "¿Cuánto tarda el proceso?",
-      a: "Depende del caso y de qué tan rápido estén los documentos. En general, buscamos moverte rápido y con claridad desde el primer contacto.",
+      q: "¿Cuánto tarda?",
+      a: "Depende del caso y de qué tan rápido estén los documentos. Buscamos moverte rápido y con claridad desde el primer contacto.",
     },
     {
-      q: "¿Qué necesito para iniciar?",
-      a: "Lo básico suele ser identificación y comprobantes de ingreso. En la sección de requisitos te mostramos una guía por categoría.",
+      q: "¿Qué necesito?",
+      a: "Lo básico suele ser identificación y comprobantes de ingreso. En requisitos verás una guía por categoría.",
     },
     {
       q: "¿Atienden fines de semana?",
-      a: "La atención principal es de lunes a viernes en horario laboral. Si escribes fuera de horario, te respondemos apenas estemos disponibles.",
+      a: "La atención principal es de lunes a viernes en horario laboral. Si escribes fuera de horario, respondemos apenas estemos disponibles.",
     },
     {
-      q: "¿La aprobación es garantizada?",
-      a: "No. Toda solicitud está sujeta a evaluación. Nuestra promesa es asesorarte con transparencia y acompañarte en el proceso.",
+      q: "¿Aprobación garantizada?",
+      a: "No. Toda solicitud está sujeta a evaluación. Nuestro compromiso es asesorarte con transparencia y acompañarte en el proceso.",
     },
     {
       q: "¿Cómo me contactan?",
-      a: "Te contactamos por WhatsApp. Por eso es importante que tu número y datos estén correctos al momento de escribirnos.",
+      a: "Te contactamos por WhatsApp. Por eso es importante que tu número y datos estén correctos al escribirnos.",
     },
   ];
 
@@ -30,24 +30,22 @@ export default function FAQ() {
     <section id="preguntas" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="max-w-2xl">
-          <h2 className="text-2xl font-semibold md:text-3xl">Preguntas frecuentes</h2>
-          <p className="mt-3 text-white/70">
-            Respuestas rápidas para que tengas el panorama claro.
-          </p>
+          <h2 className="text-2xl font-semibold text-black md:text-3xl">Preguntas frecuentes</h2>
+          <p className="mt-3 text-black/70">Respuestas rápidas para que tengas el panorama claro.</p>
         </div>
 
         <div className="mt-8 grid gap-3">
           {faqs.map((f, idx) => (
-            <details key={idx} className="glass rounded-3xl p-5">
-              <summary className="cursor-pointer text-sm font-semibold text-white/90">
+            <details key={idx} className="card rounded-3xl p-5">
+              <summary className="cursor-pointer text-sm font-semibold text-black">
                 {f.q}
               </summary>
-              <p className="mt-3 text-sm text-white/70">{f.a}</p>
+              <p className="mt-3 text-sm text-black/70">{f.a}</p>
             </details>
           ))}
         </div>
 
-        <p className="mt-6 text-xs text-white/55">
+        <p className="mt-6 text-xs text-black/55">
           *Sujeto a evaluación. No garantizamos aprobación.
         </p>
       </div>
