@@ -5,51 +5,57 @@ import { useMemo, useState } from "react";
 type Key = "privada" | "gobierno" | "pensionado";
 
 export default function Requirements() {
-  const groups = useMemo(() => ([
-    {
-      key: "privada" as Key,
-      title: "Empresa privada",
-      subtitle: "Requisitos más comunes para asalariados del sector privado.",
-      image: "/images/requirements-private.jpg"
-      items: [
-        "Cédula vigente (frente y reverso).",
-        "Carta de trabajo o constancia laboral.",
-        "Comprobantes de ingreso recientes (talonarios / pagos).",
-        "Referencia bancaria (si aplica).",
-        "Recibo de servicio o comprobante de residencia (según el caso).",
-      ],
-    },
-    {
-      key: "" as Key,
-      title: "Gobierno",
-      subtitle: "Requisitos típicos para servidores públicos.",
-      image: "/images/requirements-gobierno.jpg"
-      items: [
-        "Cédula vigente (frente y reverso).",
-        "Talonarios / comprobantes de pago recientes.",
-        "Carta de trabajo o certificación (si aplica).",
-        "Referencia bancaria (si aplica).",
-        "Comprobante de residencia (según el caso).",
-      ],
-    },
-    {
-      key: "pensionado" as Key,
-      title: "Pensionados / Jubilados",
-      subtitle: "Requisitos frecuentes para pensión o jubilación.",
-      image: "/images/requirements-pension.jpg"
-      items: [
-        "Cédula vigente (frente y reverso).",
-        "Comprobante de pensión/jubilación (documento vigente).",
-        "Estado de cuenta o referencia bancaria (si aplica).",
-        "Comprobante de residencia (según el caso).",
-        "Documento adicional si aplica (ej. apoderado/representante).",
-      ],
-    },
-  ]), []);
+  const groups = useMemo(
+    () => [
+      {
+        key: "privada" as Key,
+        title: "Empresa privada",
+        subtitle: "Requisitos más comunes para asalariados del sector privado.",
+        // ✅ IMAGEN 1
+        image: "/images/requirements-private.jpg",
+        items: [
+          "Cédula vigente (frente y reverso).",
+          "Carta de trabajo o constancia laboral.",
+          "Comprobantes de ingreso recientes (talonarios / pagos).",
+          "Referencia bancaria (si aplica).",
+          "Recibo de servicio o comprobante de residencia (según el caso).",
+        ],
+      },
+      {
+        key: "gobierno" as Key,
+        title: "Gobierno",
+        subtitle: "Requisitos típicos para servidores públicos.",
+        // ✅ IMAGEN 2
+        image: "/images/requirements-gobierno.jpg",
+        items: [
+          "Cédula vigente (frente y reverso).",
+          "Talonarios / comprobantes de pago recientes.",
+          "Carta de trabajo o certificación (si aplica).",
+          "Referencia bancaria (si aplica).",
+          "Comprobante de residencia (según el caso).",
+        ],
+      },
+      {
+        key: "pensionado" as Key,
+        title: "Pensionados / Jubilados",
+        subtitle: "Requisitos frecuentes para pensión o jubilación.",
+        // ✅ IMAGEN 3
+        image: "/images/requirements-pension.jpg",
+        items: [
+          "Cédula vigente (frente y reverso).",
+          "Comprobante de pensión/jubilación (documento vigente).",
+          "Estado de cuenta o referencia bancaria (si aplica).",
+          "Comprobante de residencia (según el caso).",
+          "Documento adicional si aplica (ej. apoderado/representante).",
+        ],
+      },
+    ],
+    []
+  );
 
   const [openKey, setOpenKey] = useState<Key>("privada");
 
-  const active = groups.find(g => g.key === openKey) ?? groups[0];
+  const active = groups.find((g) => g.key === openKey) ?? groups[0];
 
   function openAndScroll(key: Key) {
     setOpenKey(key);
@@ -61,16 +67,19 @@ export default function Requirements() {
     <section id="requisitos" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="max-w-2xl">
-          <h2 className="text-2xl font-semibold md:text-3xl">Requisitos por categoría</h2>
+          <h2 className="text-2xl font-semibold md:text-3xl">
+            Requisitos por categoría
+          </h2>
           <p className="mt-3 text-black/70">
-            Primero lo visual (para entender rápido). Luego, si quieres, abres el detalle por categoría.
+            Primero lo visual (para entender rápido). Luego, si quieres, abres el
+            detalle por categoría.
             <span className="block mt-2 text-xs text-black/55">
               *Puede variar según evaluación. No garantizamos aprobación.
             </span>
           </p>
         </div>
 
-        {/* Visual cards FIRST */}
+        {/* ✅ Visual cards FIRST */}
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {groups.map((g) => (
             <div key={g.key} className="card overflow-hidden rounded-3xl">
@@ -121,7 +130,7 @@ export default function Requirements() {
           ))}
         </div>
 
-        {/* Detail (clean, no saturar) */}
+        {/* ✅ Detail (clean, no saturar) */}
         <div id="requisitos-detalle" className="mt-10 card rounded-3xl p-6">
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
@@ -142,7 +151,7 @@ export default function Requirements() {
                     "rounded-full px-4 py-2 text-sm font-semibold transition border",
                     openKey === g.key
                       ? "bg-[var(--brand)] text-white border-transparent"
-                      : "bg-white text-black border-black/10 hover:bg-black/5"
+                      : "bg-white text-black border-black/10 hover:bg-black/5",
                   ].join(" ")}
                 >
                   {g.title}
@@ -162,7 +171,8 @@ export default function Requirements() {
             </ul>
 
             <p className="mt-5 text-xs text-black/55">
-              *Sujeto a evaluación y verificación de información. No garantizamos aprobación.
+              *Sujeto a evaluación y verificación de información. No garantizamos
+              aprobación.
             </p>
           </div>
         </div>
