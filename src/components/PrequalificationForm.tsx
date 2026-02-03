@@ -41,8 +41,6 @@ const provinces = [
 ];
 
 function isValidCedula(v: string) {
-  // Validación ligera: permite números, guiones y letras (algunas cédulas pueden incluir letras en formatos especiales).
-  // No es una validación oficial, solo evita caracteres raros.
   return /^[A-Za-z0-9-]+$/.test(v.trim());
 }
 
@@ -104,12 +102,14 @@ export default function PrequalificationForm() {
   function onSubmit(ev: React.FormEvent) {
     ev.preventDefault();
     if (!validate()) return;
+
     const msg = buildPrequalMessage({
       ...data,
       cedula: (data.cedula ?? "").trim() || undefined,
       desiredTerm: (data.desiredTerm ?? "").trim() || undefined,
       comments: (data.comments ?? "").trim() || undefined,
     });
+
     openWhatsApp(msg);
   }
 
@@ -117,118 +117,124 @@ export default function PrequalificationForm() {
     openWhatsApp(buildFallbackMessage(data.fullName));
   }
 
+  const inputClass =
+    "mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black placeholder:text-black/35 focus:border-[rgba(210,19,21,0.40)]";
+  const selectClass =
+    "mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black focus:border-[rgba(210,19,21,0.40)]";
+  const errorClass = "mt-1 text-xs text-[var(--brand)]";
+
   return (
     <section id="precalificacion" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <div>
-            <h2 className="text-2xl font-semibold md:text-3xl">Precalificación</h2>
-            <p className="mt-3 text-white/70">
+            <h2 className="text-2xl font-semibold text-black md:text-3xl">Precalificación</h2>
+            <p className="mt-3 text-black/70">
               Completa lo básico (toma menos de 2 minutos). Al enviar, se abrirá WhatsApp con un mensaje ordenado para continuar con un asesor.
             </p>
 
-            <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-5">
-              <h3 className="text-sm font-semibold">¿Prefieres escribir directo?</h3>
-              <p className="mt-2 text-sm text-white/70">
+            <div className="mt-6 card rounded-3xl p-5">
+              <h3 className="text-sm font-semibold text-black">¿Prefieres escribir directo?</h3>
+              <p className="mt-2 text-sm text-black/70">
                 Puedes tocar el botón y te abrimos WhatsApp incluso si no llenas todo.
               </p>
               <button
                 type="button"
                 onClick={sendFallback}
-                className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-emerald-950 hover:bg-emerald-400 transition"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-[var(--brand)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--brand2)] transition"
               >
                 {WA_CTA}
               </button>
-              <p className="mt-3 text-xs text-white/55">
+              <p className="mt-3 text-xs text-black/55">
                 *Sujeto a evaluación. No garantizamos aprobación.
               </p>
             </div>
           </div>
 
-          <form onSubmit={onSubmit} className="glass rounded-3xl p-6 shadow-soft">
+          <form onSubmit={onSubmit} className="card rounded-3xl p-6">
             <div className="grid gap-4">
               <div>
-                <label className="text-sm font-semibold" htmlFor="fullName">Nombre y Apellido</label>
+                <label className="text-sm font-semibold text-black" htmlFor="fullName">Nombre y Apellido</label>
                 <input
                   id="fullName"
                   value={data.fullName}
                   onChange={(e) => onChange("fullName", e.target.value)}
-                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35"
+                  className={inputClass}
                   placeholder="Ej: Juan Pérez"
                   autoComplete="name"
                 />
-                {errors.fullName && <p className="mt-1 text-xs text-rose-300">{errors.fullName}</p>}
+                {errors.fullName && <p className={errorClass}>{errors.fullName}</p>}
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-sm font-semibold" htmlFor="cedula">Cédula (opcional)</label>
+                  <label className="text-sm font-semibold text-black" htmlFor="cedula">Cédula (opcional)</label>
                   <input
                     id="cedula"
                     value={data.cedula}
                     onChange={(e) => onChange("cedula", e.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35"
+                    className={inputClass}
                     placeholder="Ej: 8-123-456"
                     inputMode="text"
                   />
-                  {errors.cedula && <p className="mt-1 text-xs text-rose-300">{errors.cedula}</p>}
+                  {errors.cedula && <p className={errorClass}>{errors.cedula}</p>}
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold" htmlFor="age">Edad (≥ 21)</label>
+                  <label className="text-sm font-semibold text-black" htmlFor="age">Edad (≥ 21)</label>
                   <input
                     id="age"
                     value={data.age}
                     onChange={(e) => onChange("age", e.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35"
+                    className={inputClass}
                     placeholder="Ej: 29"
                     inputMode="numeric"
                   />
-                  {errors.age && <p className="mt-1 text-xs text-rose-300">{errors.age}</p>}
+                  {errors.age && <p className={errorClass}>{errors.age}</p>}
                 </div>
               </div>
 
               <div>
-                <label className="text-sm font-semibold" htmlFor="incomeType">Tipo de ingreso</label>
+                <label className="text-sm font-semibold text-black" htmlFor="incomeType">Tipo de ingreso</label>
                 <select
                   id="incomeType"
                   value={data.incomeType}
                   onChange={(e) => onChange("incomeType", e.target.value as any)}
-                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white"
+                  className={selectClass}
                 >
-                  <option value="" className="bg-[#0b1220]">Selecciona...</option>
+                  <option value="">Selecciona...</option>
                   {incomeTypes.map((t) => (
-                    <option key={t} value={t} className="bg-[#0b1220]">{t}</option>
+                    <option key={t} value={t}>{t}</option>
                   ))}
                 </select>
-                {errors.incomeType && <p className="mt-1 text-xs text-rose-300">{errors.incomeType}</p>}
+                {errors.incomeType && <p className={errorClass}>{errors.incomeType}</p>}
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-sm font-semibold" htmlFor="incomeRange">Ingreso mensual aprox.</label>
+                  <label className="text-sm font-semibold text-black" htmlFor="incomeRange">Ingreso mensual aprox.</label>
                   <select
                     id="incomeRange"
                     value={data.incomeRange}
                     onChange={(e) => onChange("incomeRange", e.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white"
+                    className={selectClass}
                   >
                     {incomeRanges.map((r) => (
-                      <option key={r} value={r} className="bg-[#0b1220]">{r}</option>
+                      <option key={r} value={r}>{r}</option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold" htmlFor="desiredAmountRange">Monto deseado</label>
+                  <label className="text-sm font-semibold text-black" htmlFor="desiredAmountRange">Monto deseado</label>
                   <select
                     id="desiredAmountRange"
                     value={data.desiredAmountRange}
                     onChange={(e) => onChange("desiredAmountRange", e.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white"
+                    className={selectClass}
                   >
                     {amountRanges.map((r) => (
-                      <option key={r} value={r} className="bg-[#0b1220]">{r}</option>
+                      <option key={r} value={r}>{r}</option>
                     ))}
                   </select>
                 </div>
@@ -236,50 +242,50 @@ export default function PrequalificationForm() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-sm font-semibold" htmlFor="desiredTerm">Plazo deseado (opcional)</label>
+                  <label className="text-sm font-semibold text-black" htmlFor="desiredTerm">Plazo deseado (opcional)</label>
                   <select
                     id="desiredTerm"
                     value={data.desiredTerm}
                     onChange={(e) => onChange("desiredTerm", e.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white"
+                    className={selectClass}
                   >
-                    <option value="" className="bg-[#0b1220]">No estoy seguro</option>
+                    <option value="">No estoy seguro</option>
                     {termOptions.map((r) => (
-                      <option key={r} value={r} className="bg-[#0b1220]">{r}</option>
+                      <option key={r} value={r}>{r}</option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold" htmlFor="province">Provincia / Zona</label>
+                  <label className="text-sm font-semibold text-black" htmlFor="province">Provincia / Zona</label>
                   <select
                     id="province"
                     value={data.province}
                     onChange={(e) => onChange("province", e.target.value)}
-                    className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white"
+                    className={selectClass}
                   >
                     {provinces.map((p) => (
-                      <option key={p} value={p} className="bg-[#0b1220]">{p}</option>
+                      <option key={p} value={p}>{p}</option>
                     ))}
                   </select>
-                  {errors.province && <p className="mt-1 text-xs text-rose-300">{errors.province}</p>}
+                  {errors.province && <p className={errorClass}>{errors.province}</p>}
                 </div>
               </div>
 
               <div>
-                <label className="text-sm font-semibold" htmlFor="comments">Comentarios (opcional)</label>
+                <label className="text-sm font-semibold text-black" htmlFor="comments">Comentarios (opcional)</label>
                 <textarea
                   id="comments"
                   value={data.comments}
                   onChange={(e) => onChange("comments", e.target.value)}
-                  className="mt-2 min-h-[92px] w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/35"
-                  placeholder="Ej: quiero consolidar deudas / necesito para una urgencia / me orientan con requisitos…"
+                  className="mt-2 min-h-[92px] w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black placeholder:text-black/35 focus:border-[rgba(210,19,21,0.40)]"
+                  placeholder="Ej: quiero consolidar deudas / me orientan con requisitos…"
                 />
               </div>
 
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-emerald-950 hover:bg-emerald-400 transition disabled:opacity-60 disabled:hover:bg-emerald-500"
+                className="inline-flex items-center justify-center rounded-2xl bg-[var(--brand)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--brand2)] transition disabled:opacity-60"
                 disabled={!canSend}
                 aria-disabled={!canSend}
               >
@@ -289,12 +295,12 @@ export default function PrequalificationForm() {
               <button
                 type="button"
                 onClick={sendFallback}
-                className="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
+                className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-black/5 transition"
               >
                 Enviar por WhatsApp (sin llenar todo)
               </button>
 
-              <p className="text-xs text-white/55">
+              <p className="text-xs text-black/55">
                 Al enviar, se abre WhatsApp con un mensaje listo. No se procesan pagos en esta landing.
               </p>
             </div>
