@@ -10,7 +10,7 @@ export default function Requirements() {
       key: "privada" as Key,
       title: "Empresa privada",
       subtitle: "Requisitos más comunes para asalariados del sector privado.",
-      image: "/images/requirements.jpg",
+      image: "/images/requirements-private.jpg"
       items: [
         "Cédula vigente (frente y reverso).",
         "Carta de trabajo o constancia laboral.",
@@ -20,10 +20,10 @@ export default function Requirements() {
       ],
     },
     {
-      key: "gobierno" as Key,
+      key: "" as Key,
       title: "Gobierno",
       subtitle: "Requisitos típicos para servidores públicos.",
-      image: "/images/requirements.jpg",
+      image: "/images/requirements-gobierno.jpg"
       items: [
         "Cédula vigente (frente y reverso).",
         "Talonarios / comprobantes de pago recientes.",
