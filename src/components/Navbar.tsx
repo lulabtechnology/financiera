@@ -11,7 +11,7 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/70 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/85 backdrop-blur">
       <a
         href="#inicio"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] glass px-4 py-2"
@@ -21,26 +21,20 @@ export default function Navbar() {
 
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <a href="#inicio" className="flex items-center gap-3">
-          {/* Logo placeholder */}
           <img
             src="/images/logo.png"
             alt="RapiCredito"
-            className="h-9 w-9 rounded-xl bg-white/5 p-1 ring-1 ring-white/10"
+            className="h-10 w-auto"
             loading="eager"
           />
-          <div className="leading-tight">
-            <div className="text-sm font-semibold">{SITE.name}</div>
-            <div className="text-xs text-white/60">Cotiza por WhatsApp</div>
-          </div>
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex" aria-label="Navegación principal">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-white/70 hover:text-white transition"
+              className="text-sm text-black/70 hover:text-black transition"
             >
               {l.label}
             </a>
@@ -50,29 +44,26 @@ export default function Navbar() {
             href={waLink(WA_CTA)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-white/10 px-3 py-2 text-sm text-white hover:bg-white/15 transition"
+            className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-black/5 transition"
             aria-label="Abrir WhatsApp"
           >
             WhatsApp
           </a>
         </nav>
 
-        {/* Mobile menu (no JS) */}
+        {/* Mobile menu */}
         <div className="md:hidden">
           <details className="group">
-            <summary className="list-none cursor-pointer rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/90 hover:bg-white/10 transition">
-              <span className="inline-flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-emerald-400/80"></span>
-                Menú
-              </span>
+            <summary className="list-none cursor-pointer rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-black/5 transition">
+              Menú
             </summary>
-            <div className="mt-2 w-[min(92vw,360px)] rounded-2xl border border-white/10 bg-[#0b1220]/95 p-2 shadow-soft">
+            <div className="mt-2 w-[min(92vw,360px)] rounded-2xl border border-black/10 bg-white p-2 shadow-[0_18px_35px_rgba(11,11,12,0.10)]">
               <nav aria-label="Menú móvil" className="flex flex-col">
                 {links.map((l) => (
                   <a
                     key={l.href}
                     href={l.href}
-                    className="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white transition"
+                    className="rounded-xl px-3 py-2 text-sm text-black/75 hover:bg-black/5 hover:text-black transition"
                   >
                     {l.label}
                   </a>
@@ -81,7 +72,7 @@ export default function Navbar() {
                   href={waLink(WA_CTA)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 rounded-xl bg-emerald-500 px-3 py-2 text-center text-sm font-semibold text-emerald-950 hover:bg-emerald-400 transition"
+                  className="mt-2 rounded-xl bg-[var(--brand)] px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[var(--brand2)] transition"
                 >
                   {WA_CTA}
                 </a>
