@@ -36,7 +36,7 @@ export default function Requirements() {
       key: "pensionado" as Key,
       title: "Pensionados / Jubilados",
       subtitle: "Requisitos frecuentes para pensión o jubilación.",
-      image: "/images/requirements.jpg",
+      image: "/images/requirements-pension.jpg"
       items: [
         "Cédula vigente (frente y reverso).",
         "Comprobante de pensión/jubilación (documento vigente).",
