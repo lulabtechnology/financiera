@@ -38,7 +38,7 @@ export default function Sectors() {
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {sectors.map((s) => (
             <div key={s.title} className="card overflow-hidden rounded-3xl">
-              <div className="relative aspect-[16/10]">
+              <div className="relative aspect-[16/11] md:aspect-[16/12]">
              <div className="relative h-full w-full bg-[var(--surface2)]">
   <img
     src={s.image}
