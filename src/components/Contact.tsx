@@ -50,6 +50,14 @@ export default function Contact() {
                 <div className="mt-1 text-sm text-black/70">{SITE.defaultHours}</div>
               </div>
 
+              {/* ✅ NUEVO: Dirección */}
+              <div className="card rounded-3xl px-5 py-4">
+                <div className="text-sm font-semibold text-black">Dirección</div>
+                <div className="mt-1 text-sm text-black/70">
+                  Panamá, Rep. de Panamá. Calle 37 entre Ave. Perú y Ave. Cuba.
+                </div>
+              </div>
+
               <div className="card rounded-3xl p-5">
                 <div className="text-sm font-semibold text-black">Microcopy de confianza</div>
                 <p className="mt-2 text-sm text-black/70">
@@ -64,6 +72,12 @@ export default function Contact() {
             <h3 className="text-lg font-semibold text-black">¿Listo para cotizar?</h3>
             <p className="mt-2 text-sm text-black/70">
               Escríbenos tu tipo de ingreso, rango de ingreso y monto aproximado. Con eso iniciamos.
+            </p>
+
+            {/* ✅ NUEVO: Dirección también aquí (mini corporativa) */}
+            <p className="mt-4 text-sm text-black/70">
+              <span className="font-semibold text-black">Dirección:</span>{" "}
+              Panamá, Rep. de Panamá. Calle 37 entre Ave. Perú y Ave. Cuba.
             </p>
 
             <div className="mt-6 grid gap-2">
