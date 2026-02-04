@@ -21,13 +21,25 @@ export default function Hero() {
           aria-hidden="true"
         />
         {/* Brand blobs */}
-        <div className="pointer-events-none absolute -top-28 -left-28 h-80 w-80 rounded-full bg-[rgba(210,19,21,0.14)] blur-3xl motion-safe:animate-floaty" aria-hidden="true" />
-        <div className="pointer-events-none absolute top-12 -right-24 h-72 w-72 rounded-full bg-[rgba(156,47,49,0.10)] blur-3xl motion-safe:animate-floaty" style={{ animationDelay: "1.5s" }} aria-hidden="true" />
+        <div
+          className="pointer-events-none absolute -top-28 -left-28 h-80 w-80 rounded-full bg-[rgba(210,19,21,0.14)] blur-3xl motion-safe:animate-floaty"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute top-12 -right-24 h-72 w-72 rounded-full bg-[rgba(156,47,49,0.10)] blur-3xl motion-safe:animate-floaty"
+          style={{ animationDelay: "1.5s" }}
+          aria-hidden="true"
+        />
 
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="card rounded-3xl p-6 md:p-8">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs text-black/70">
+              {/* ✅ NUEVO: badge de asesoría gratis */}
+              <div className="inline-flex items-center rounded-full bg-[rgba(210,19,21,0.10)] px-3 py-1 text-xs font-semibold text-[var(--brand)]">
+                Asesoría completamente Gratis!
+              </div>
+
+              <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs text-black/70">
                 <span className="h-2 w-2 rounded-full bg-[var(--brand)]" />
                 Respuesta rápida · Asesoría humana · Proceso claro
               </div>
@@ -43,12 +55,18 @@ export default function Hero() {
                 .
               </h1>
 
-              <p className="mt-4 text-base leading-relaxed text-black/70 md:text-lg motion-safe:animate-fadeUp" style={{ animationDelay: "120ms" }}>
+              <p
+                className="mt-4 text-base leading-relaxed text-black/70 md:text-lg motion-safe:animate-fadeUp"
+                style={{ animationDelay: "120ms" }}
+              >
                 Préstamos personales rápidos en Panamá, con acompañamiento humano y una cotización clara desde el inicio.
                 Escríbenos por WhatsApp y te guiamos paso a paso.
               </p>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row motion-safe:animate-fadeUp" style={{ animationDelay: "220ms" }}>
+              <div
+                className="mt-6 flex flex-col gap-3 sm:flex-row motion-safe:animate-fadeUp"
+                style={{ animationDelay: "220ms" }}
+              >
                 <a
                   href={waLink(WA_CTA)}
                   target="_blank"
@@ -79,6 +97,22 @@ export default function Hero() {
                   Atención humana
                 </li>
               </ul>
+
+              {/* ✅ NUEVO: Productos */}
+              <div className="mt-6">
+                <div className="text-sm font-semibold text-black">Productos</div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <span className="rounded-full border border-black/10 bg-white px-3 py-2 text-sm text-black/75">
+                    Préstamo personal
+                  </span>
+                  <span className="rounded-full border border-black/10 bg-white px-3 py-2 text-sm text-black/75">
+                    Préstamo de autos
+                  </span>
+                  <span className="rounded-full border border-black/10 bg-white px-3 py-2 text-sm text-black/75">
+                    Préstamos hipotecarios
+                  </span>
+                </div>
+              </div>
 
               <p className="mt-4 text-xs text-black/55">
                 *Sujeto a evaluación. No garantizamos aprobación.
