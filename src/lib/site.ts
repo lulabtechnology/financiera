@@ -18,6 +18,10 @@ export const SITE = {
 
 export const WA_CTA = "Cotiza tu préstamo ahora por WhatsApp";
 
+/** ✅ Esto es lo que te faltaba exportar (lo usa whatsapp.ts) */
+export const WA_DEFAULT_MESSAGE =
+  "Hola, quiero cotizar un préstamo. ¿Me orientan por favor?";
+
 export function igLink() {
   return `https://instagram.com/${SITE.igHandle}`;
 }
@@ -26,7 +30,10 @@ function encodeWA(text: string) {
   return encodeURIComponent(text);
 }
 
-// ✅ Link WhatsApp (por defecto usa el principal, pero puedes pasar el alterno)
+/**
+ * ✅ Link WhatsApp (por defecto usa el principal, pero puedes pasar el alterno)
+ * Ej: waLink("Hola", SITE.waNumberAlt)
+ */
 export function waLink(message: string, numberOverride?: string) {
   const n = (numberOverride || SITE.waNumber).replace(/\D/g, "");
   return `https://wa.me/${n}?text=${encodeWA(message)}`;
