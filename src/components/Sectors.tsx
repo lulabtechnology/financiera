@@ -91,7 +91,10 @@ export default function Sectors() {
     <section id="sectores" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="max-w-2xl">
-          <h2 className="text-2xl font-semibold md:text-3xl">Sectores que más atendemos</h2>
+          <h2 className="text-2xl font-semibold md:text-3xl">
+  Especialistas en préstamos para Educadores, Policías y Sector Salud
+</h2>
+
           <p className="mt-3 text-black/70">
             Creamos un flujo más claro para estos perfiles. Escríbenos y te decimos qué aplica para ti.
             <span className="block mt-2 text-xs text-black/55">
