@@ -2,7 +2,9 @@ import { SITE, WA_CTA, waLink } from "@/lib/site";
 
 const links = [
   { href: "#inicio", label: "Inicio" },
+  { href: "#sectores", label: "Sectores" }, // ✅ nuevo
   { href: "#beneficios", label: "Beneficios" },
+  { href: "#como-funciona", label: "Cómo funciona" },
   { href: "#requisitos", label: "Requisitos" },
   { href: "#precalificacion", label: "Precalificación" },
   { href: "#preguntas", label: "Preguntas" },
@@ -23,7 +25,7 @@ export default function Navbar() {
         <a href="#inicio" className="flex items-center gap-3">
           <img
             src="/images/logo.png"
-            alt="RapiCredito"
+            alt={SITE.name}
             className="h-10 w-auto"
             loading="eager"
           />
