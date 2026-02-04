@@ -39,12 +39,15 @@ export default function Sectors() {
           {sectors.map((s) => (
             <div key={s.title} className="card overflow-hidden rounded-3xl">
               <div className="relative aspect-[16/10]">
-                <img
-                  src={s.image}
-                  alt={`Imagen referencial - ${s.title}`}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+             <div className="relative h-full w-full bg-[var(--surface2)]">
+  <img
+    src={s.image}
+    alt={`Imagen referencial - ${s.title}`}
+    className="h-full w-full object-contain p-3"
+    loading="lazy"
+  />
+</div>
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
                   <div className="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-black">
